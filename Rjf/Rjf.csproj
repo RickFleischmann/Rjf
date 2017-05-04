@@ -71,6 +71,7 @@
     <Content Include="app\baseDirective.js" />
     <Content Include="app\baseService.js" />
     <Content Include="app\controllers.js" />
+    <Content Include="app\jeananne.js" />
     <Content Include="app\OrchestrationBrowse.js" />
     <Content Include="app\PianorolBrowse.js" />
     <Content Include="app\PrpBrowse.js" />
@@ -78,6 +79,8 @@
     <Content Include="app\SilentBrowse.js" />
     <Content Include="app\SolosBrowse.js" />
     <Content Include="app\TracksBrowse.js" />
+    <Content Include="images\after.jpg" />
+    <Content Include="images\before.jpg" />
     <Content Include="Index.html" />
     <Content Include="packages.config" />
     <Content Include="scripts\angular.min.js.map" />

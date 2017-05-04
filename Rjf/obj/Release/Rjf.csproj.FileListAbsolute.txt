@@ -17,3 +17,4 @@ C:\Users\Rick\Source\Repos\Rjf\Rjf\bin\Microsoft.CodeDom.Providers.DotNetCompile
 C:\Users\Rick\Source\Repos\Rjf\Rjf\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Rick\Source\Repos\Rjf\Rjf\obj\Release\Rjf.dll
 C:\Users\Rick\Source\Repos\Rjf\Rjf\obj\Release\Rjf.pdb
+C:\Users\Rick\Source\Repos\Rjf\Rjf\obj\Release\Rjf.csprojResolveAssemblyReference.cache

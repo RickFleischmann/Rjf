@@ -1,62 +1,225 @@
 ﻿
-<h2>Catalog</h2>
-<br />
+<html>
 
-<div class="row">
-    <div class="col-xs-6">
-        <div>
-            <a href="#/OrchestrationBrowse" class="btn btn-primary btn-lg" role="button">Orch.</a>
+<body>
+
+    <!--<br/>
+
+    <div ng-init="beforei=true"></div>
+
+    <div>
+        <img ng-show="beforei==true" ng-src="/images/before.jpg" style="width:25%;height:60%;">
+    </div>    
+
+    <div>
+        <img ng-show="beforei==false" ng-src="/images/after.jpg" style="width:25%;height:60%;">
+    </div>  
+
+    <div>
+        <button type="button" class="btn btn-default btn-sm" ng-click="beforei=1">Before</button>
+        <button type="button" class="btn btn-default btn-sm" ng-click="beforei=0">After</button>
+    </div>
+
+    <br />
+    <br />-->
+
+    <!-------------------Menu Bar DropDown--------------------->
+    <!--This is completely seperate from the content-->
+    <div ng-show="SideMenu == 4" class="aaNavPillThin DateOverlap">
+        <ul class="nav nav-pills">
+            <li role="presentation" class="dropdown pull-right">
+                <a class="dropdown-toggle animated shake" data-toggle="dropdown" href>
+                    {{MenuDropDownCurrent.Label}} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li ng-repeat="row in DemoList"><a href ng-click="ddlMenuDropDownCurrentChange(row)">{{::row.Label}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!--Filter-->
+    <div ng-show="SideMenu == 5" class="aaNavPillThin DateOverlap">
+        <ul class="nav nav-pills">
+            <li uib-dropdown class="pull-right" auto-close="outsideClick">
+                <a uib-dropdown-toggle href class="animated shake">
+                    Multiple Checks <span class="caret"></span>
+                </a>
+                <ul uib-dropdown-menu>
+                    <li ng-repeat="row in FilterList" role="menuitem">
+                        <a href ng-click="row.IsSelected = !row.IsSelected"><i class="fa fa-lg fa-fw" ng-class="row.IsSelected?'fa-check-square':'fa-square-o'"></i> {{::row.Label}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row container-fluid" style="padding-top:10px;">
+        <!--SideMenu-->
+        <div class="col-lg-2">
+            <ul class="ccSideMenu">
+                <li class="title">MENU</li>
+                <li ng-class="{'active': SideMenu == 0}"><a href ng-click="SelectMenu(0)">Key Design Links</a></li>
+                <li ng-class="{'active': SideMenu == 1}"><a href ng-click="SelectMenu(1)">Standard DropDown</a></li>
+                <li ng-class="{'active': SideMenu == 2}"><a href ng-click="SelectMenu(2)">Form Select</a></li>
+                <li ng-class="{'active': SideMenu == 3}"><a href ng-click="SelectMenu(3)">DropDown Table</a></li>
+                <li ng-class="{'active': SideMenu == 4}"><a href ng-click="SelectMenu(4)">Menu Bar DropDown</a></li>
+                <li ng-class="{'active': SideMenu == 5}"><a href ng-click="SelectMenu(5)">Menu Bar DropDown Filter Checkbox</a></li>
+            </ul>
+        </div>
+
+        <!--Content-->
+        <div class="col-lg-10">
+            <!-------------------Key Links--------------------->
+            <div ng-show="SideMenu == 0">
+                <h4>All of these components are installed in AdminApp and ready to use.</h4>
+                <a target="_blank" href="http://getbootstrap.com/css/">Bootstrap CSS</a><br />
+                <a target="_blank" href="http://getbootstrap.com/components/">Bootstrap Components</a><br />
+                <a target="_blank" href="http://getbootstrap.com/javascript/">Bootstrap Javascript</a><br />
+                <a target="_blank" href="http://angular-ui.github.io/bootstrap/">Angular UI for Bootstrap (Directives)</a><br />
+                <a target="_blank" href="http://fontawesome.io/icons/">Font-Awesome (Icons)</a><br />
+                <a target="_blank" href="http://wrapbootstrap.com/preview/WB011H985">Bootstrap Wrapper (Material Ideas)</a>
+            </div>
+
+            <!-------------------Standard DropDown--------------------->
+            <div ng-show="SideMenu == 1">
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="row in SetAlertTypes"><a href>{{::row.Type}}</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href>Manual Add to bottom</a></li>
+                    </ul>
+                </div>
+                <p>
+                    <h3>Using a model / object:</h3>
+                    <div>
+                        <select ng-options="alert as alert.itemCss for alert in MyList" ng-model="MyListSelected" class="form-control"></select>
+                    </div>
+                    <div ng-class="MyListSelected.itemCss">{{MyListSelected}}</div>
+                    <div><strong>Just the text:</strong> {{MyListSelected.btnCss}}</div>
+                </p>
+
+                <h3>Standard DropDown:</h3>
+                <div>This is a safe, well formatted drop menu from bootstrap. It's the recommended approach.</div>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4>Basic</h4>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href>Action</a></li>
+                                <li><a href>Another action</a></li>
+                                <li><a href>Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href>Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <h4>Wired to angular list</h4>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle" ng-class="DropDownCurrent.btnCss" data-toggle="dropdown">
+                                {{DropDownCurrent.Label}} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="row in DemoList" ng-click="ddlDropDownCurrentChange(row)"><a href>{{::row.Label}}</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href ng-click="SelectMenu(2)">Manual Add: Check out Form Dropdown</a></li>
+                            </ul>
+                        </div>
+                        <p></p>
+                        <p ng-class="DropDownCurrent.itemCss">This is a div with class '{{DropDownCurrent.itemCss}}'</p>
+                        <pre>{{MakeObjectPretty(DropDownCurrent)}}</pre>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-------------------Form DropDown / Select--------------------->
+            <div ng-show="SideMenu == 2">
+                <h3>Form Select:</h3>
+                <div>Not as pretty as the dropdown from bootstrap but easier to wire up to ng-model.</div>
+
+                <p>
+                    <div>
+                        <select ng-options="x as x.Label for x in DemoList" ng-model="FormSelectCurrent" class="form-control"></select>
+                    </div>
+                </p>
+                <p ng-class="FormSelectCurrent.itemCss">This is a div with class '{{FormSelectCurrent.itemCss}}'</p>
+                <pre>{{MakeObjectPretty(FormSelectCurrent)}}</pre>
+            </div>
+
+            <!-------------------Dropdown table--------------------->
+            <div ng-show="SideMenu == 3">
+
+                <div>A drop menu on steriods to organize a lot of information. The call is not actually made until you click the drop menu.</div>
+
+                <!--Dropdown container-->
+                <div class="dropdown">
+
+                    <!--Dropdown button-->
+                    <button ng-click="GetDropTableData(50);" class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Dropdown Table <span class="caret"></span>
+                    </button>
+
+                    <!--Dropdown menu -->
+                    <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="padding:5px;">
+
+                        <!--Dropdown table -->
+                        <table class="table table-hover table-condensed tableDarkHeader table-stickyHeader">
+                            <thead>
+                                <tr>
+                                    <th sort by="dd-order" reverse="dd-reverse" order="'ACCOUNTID'">ACCOUNTID</th>
+                                    <th sort by="dd-order" reverse="dd-reverse" order="'ACCOUNT'">ACCOUNT</th>
+                                    <th sort by="dd-order" reverse="dd-reverse" order="'TYPE'">TYPE</th>
+                                    <th sort by="dd-order" reverse="dd-reverse" order="'FEATUREBAR'">FEATUREBAR</th>
+                                    <th sort by="dd-order" reverse="dd-reverse" order="'LICENSETYPE'">LICENSETYPE</th>
+                                    <th sort by="dd-order" reverse="dd-reverse" order="'REVENUE'" class="text-right">REVENUE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in DropTableData | orderBy:dd-order:reverse" ng-click="ddlSelectRow(row)">
+                                    <td>{{::row.ACCOUNTID}}</td>
+                                    <td>{{::row.ACCOUNT}}</td>
+                                    <td>{{::row.TYPE}}</td>
+                                    <td ng-bind-html="::row.BUSINESSDESCRIPTION"></td>
+                                    <td>{{::row.LICENSETYPE}}</td>
+                                    <td class="text-right">${{::row.REVENUE |  number:2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                &nbsp;
+                <pre>ACCOUNT: {{CurrentRow.ACCOUNT}}<br />ACCOUNTID: {{CurrentRow.ACCOUNTID}}</pre>
+            </div>
+
+            <!-------------------Menu DropDown--------------------->
+            <div ng-show="SideMenu == 4">
+                <h3>Dropdown on the menu bar (top-right)</h3>
+                <p>This uses a transparent menu bar (css: aaNavPillThin DateOverlap). It's actually on the page but appears to be part of the parent menu.</p>
+                <pre>{{MakeObjectPretty(MenuDropDownCurrent)}}</pre>
+            </div>
+
+            <!-------------------Menu Multiple Checks--------------------->
+            <div ng-show="SideMenu == 5">
+                <h3>Multiple checks (top-right)</h3>
+                <p>This get's complex and has some drawbacks. It can be used to fire a filter on an existing object but should not make a trip to the server (too many clicks).</p>
+                <pre>{{MakeObjectPretty(FilterList)}}</pre>
+            </div>
         </div>
     </div>
-    <div class="col-xs-6">
-        <div>
-            <a href="#/SheetMusBrowse" class="btn btn-primary btn-lg" role="button">Sheet Music</a>
-        </div>
-    </div>
-</div>
-</br>
-
-<div class="row">
-    <div class="col-xs-6">
-        <div>
-            <a href="#/SolosBrowse" class="btn btn-primary btn-lg" role="button">Solos</a>
-        </div>
-    </div>
-    <div class="col-xs-6">
-        <div>
-            <a href="#/SilentBrowse" class="btn btn-primary btn-lg" role="button">Silent</a>
-        </div>
-    </div>
-</div>
-
-<br />
-
-<div class="row">
-    <div class="col-xs-6">
-        <div>
-            <a href="#/PianorolBrowse" class="btn btn-primary btn-lg" role="button">Piano rolls</a>
-        </div>
-
-    </div>
-    <div class="col-xs-6">
-        <div>
-            <a href="#/78Browse" class="btn btn-primary btn-lg" role="button">78's</a>
-        </div>
-    </div>
-</div>
 
 
-<br />
-
-<div class="row">
-    <div class="col-xs-6">
-        <div>
-            <a href="#/PrpBrowse" class="btn btn-primary btn-lg" role="button">PRP</a>
-        </div>
-    </div>
-    <div class="col-xs-6">
-        <div>
-            <a href="#/TracksBrowse" class="btn btn-primary btn-lg" role="button">Media</a>
-        </div>
-    </div>
-</div>
+</body>
+</html>

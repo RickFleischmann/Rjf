@@ -12,8 +12,14 @@
                 .state('home', {
                     url: '/',
                     templateUrl: './view/Home.html',
-                    controller: 'HomeController'
+                    controller: 'jeananneController'
                 })
+                .state('otherwise', {
+                    url: '*path',
+                    templateUrl: '/View/Home.html',
+                    controller: 'jeananneController'
+                });
+
      }]);
 
     //appVar.config(['$httpProvider', function ($httpProvider) {
