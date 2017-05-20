@@ -108,6 +108,8 @@
     <Content Include="style\CSS\bootstrap.css" />
     <Content Include="style\CSS\common.css" />
     <Content Include="style\CSS\style.css" />
+    <Content Include="style\CSS\tableNavigator.css" />
+    <Content Include="style\CSS\wgDropDowns.css" />
     <Content Include="view\78Browse.html" />
     <Content Include="view\Error.html" />
     <Content Include="view\Home.html" />

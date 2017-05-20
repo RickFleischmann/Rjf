@@ -1,0 +1,75 @@
+﻿
+/**********************************
+DASHBOARD WIDGETS SMALL
+**********************************/
+.table-nav {
+    width: 100%;
+}
+
+    .table-nav tbody > tr > td {
+        position: relative;
+        border-top: solid 1px #FFFFFF;
+        border-bottom: solid 1px #FFFFFF;
+        border-left: solid 1px #FFFFFF;
+        padding: 3px 10px 3px 10px;
+        background-clip: padding-box;
+    }
+
+        .table-nav tbody > tr > td:first-child {
+            border-left: solid 0px #FFFFFF;
+        }
+
+        .table-nav tbody > tr > td:last-child {
+            border-right: solid 0px #FFFFFF;
+        }
+
+        .table-nav tbody > tr > td a.tn-link {
+            height: 40px;
+            text-decoration: none;
+            color: #ffffff;
+            display: block;
+        }
+
+            .table-nav tbody > tr > td a.tn-link .tn-graphic {
+                font-size: 26px;
+                margin: 0px 0px 0px 0px;
+                position: absolute;
+                color: inherit;
+            }
+
+            .table-nav tbody > tr > td a.tn-link .tn-text {
+                text-align: right;
+                color: inherit;
+            }
+
+                .table-nav tbody > tr > td a.tn-link .tn-text > div {
+                    font-size: 20px;
+                    line-height: 20px;
+                }
+
+                .table-nav tbody > tr > td a.tn-link .tn-text > span {
+                    font-size: 11px;
+                    color: rgba(255, 255, 255, 0.6);
+                }
+
+        .table-nav tbody > tr > td div.tn-link {
+            bottom: -1px;
+            position: absolute;
+            background-color: inherit;
+            height: 2px;
+            margin-left: -10px;
+            width: 100%;
+            display: none;
+            color: inherit;
+        }
+
+        .table-nav tbody > tr > td.active div.tn-link {
+            display: block;
+            z-index: 9;
+        }
+
+div.btn-Style {
+    padding: 8px 15px 8px 15px;
+    display: block;
+    cursor: pointer;
+}
