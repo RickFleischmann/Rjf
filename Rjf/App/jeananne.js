@@ -2,9 +2,13 @@
 
 (function() {
 
+    // get reference to app module
     var appVar = angular.module("app");
- 
-    appVar.controller("jeananneController", ["$scope", "$http", function ($scope, $http) {
+
+    // define function as variable to be used as controller
+    var jeananneController = function ($scope, $http, myFactory) {
+        myFactory.setName("Saksham Chauhan");
+        $scope.factoryName = myFactory.name;
 
         $scope.hi = 'hello baby';
 
@@ -94,6 +98,10 @@
         ];
 
 
-     }]);
+
+    }
+
+    // add controller variable to app module reference
+    appVar.controller("jeananneController", ["$scope", "$http", "myFactory", jeananneController]);
 
 }());

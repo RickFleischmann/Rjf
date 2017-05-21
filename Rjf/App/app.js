@@ -2,7 +2,9 @@
 // Code goes here
 (function() {
 
-// Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
+    // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
+
+    // because there's a [] array, we are creating a module. 
     var appVar = angular.module('app', ['ui.router']);
 
     appVar.config(['$stateProvider',
